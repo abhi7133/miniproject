@@ -1,0 +1,68 @@
+package javalec;
+
+class library{
+    String[] books;
+    int no_of_books;
+    library(){
+        this.books=new String[100];
+        this. no_of_books=0;
+    }
+
+    public void addbook(String book){
+        this.books[no_of_books]=book;
+        no_of_books++;
+       System.out.println(book +"book has been added");
+    }
+
+    public void available_books(){
+        System.out.println("the available books in the library are :");
+        for (int i=0;i< books.length;i++) {
+            if (books[i] == null) {
+                continue;
+            }
+            else {
+                System.out.println("*"+books[i]+"*");
+            }
+        }
+
+    }
+
+    public void issuebook(String book){
+        for(int i=0;i<this.books.length;i++){
+            if (this.books[i].equals(book)) {
+                System.out.println(book+"the book has been issued!");
+               this.books[i] = null;
+               return;
+            }
+        }
+        System.out.println("this book not in the library");
+    }
+
+    public void returnbook(String book){
+    //    this.books[no_of_books]=book;
+        addbook(book);
+        System.out.println("book has been successfully returned!");
+    }
+}
+public class lec51creatinglibrary {
+    public static void main(String[] args) {
+        // You have to implement a library using Java Class "Library"
+        // Methods: addBook, issueBook, returnBook, showAvailableBooks
+        // Properties: Array to store the available books,
+        // Array to store the issued books
+
+
+      library central_library=new library();
+      central_library.addbook("harry_potter");
+        central_library.addbook("c++");
+        central_library.addbook("three thousand steaches");
+        central_library.addbook("web");
+
+      central_library.available_books();
+
+      central_library.issuebook("c++");
+      central_library.available_books();
+    //  central_library.returnbook("c++");
+    }
+
+}
